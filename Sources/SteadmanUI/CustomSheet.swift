@@ -4,6 +4,7 @@
 //
 //  Created by Spencer Steadman on 4/3/23.
 //
+#if os(iOS)
 
 import SwiftUI
 
@@ -165,3 +166,4 @@ extension View {
 extension Animation {
     static let sheetBounce: Animation = .interpolatingSpring(stiffness: 250, damping: 20)
 }
+#endif

@@ -4,10 +4,8 @@
 //
 //  Created by Spencer Steadman on 4/25/23.
 //
-
+#if os(iOS)
 import SwiftUI
-import ViewExtractor
-// from https://github.com/GeorgeElsham/ViewExtractor
 
 struct NavigationItem: View {
     @Environment(\.index) var index
@@ -117,6 +115,7 @@ struct CustomNavigationBar<Content: View>: View {
     var body: some View {
         ZStack {
             Extract(content) { views in
+            // ^ from https://github.com/GeorgeElsham/ViewExtractor
                 VStack {
                     ForEach(Array(zip(views.indices, views)), id: \.0) { index, view in
                         if bar.selectionIndex == index {
@@ -169,3 +168,4 @@ extension EnvironmentValues {
 private struct IndexKey: EnvironmentKey {
   static let defaultValue = 0
 }
+#endif

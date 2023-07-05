@@ -11,6 +11,7 @@ import UIKit
 class Screen: ObservableObject {
     @ObservedObject static var shared = Screen()
     @Published var safeAreaInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+#if os(iOS)
     @Published var width = UIScreen.main.bounds.size.width
     @Published var halfWidth = UIScreen.main.bounds.size.width / 2
     static var widthToLargestIPhone: Double {
@@ -20,10 +21,11 @@ class Screen: ObservableObject {
     @Published var height = UIScreen.main.bounds.size.height
     @Published var halfHeight = UIScreen.main.bounds.size.height / 2
     static let size = UIScreen.main.bounds.size
+#endif
     static let padding = 15.0
     static let halfPadding = 7.5
     static let cornerRadius = 18.0
-    
+#if os(iOS)
     static func impact() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
@@ -46,6 +48,7 @@ class Screen: ObservableObject {
             }
         }
     }
+#endif
 }
 
 extension Color {
