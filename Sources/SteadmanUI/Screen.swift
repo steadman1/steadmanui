@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-class Screen: ObservableObject {
+public class Screen: ObservableObject {
     @ObservedObject static var shared = Screen()
     @Published var safeAreaInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 #if os(iOS)
@@ -61,21 +61,21 @@ extension Font {
     static let icon = Font.system(size: 30)
 }
 
-struct VPad: View {
+public struct VPad: View {
     var size: CGFloat = Screen.padding
     var body: some View {
         Spacer().frame(height: size)
     }
 }
 
-struct HPad: View {
+public struct HPad: View {
     var size: CGFloat = Screen.padding
     var body: some View {
         Spacer().frame(width: size)
     }
 }
 
-struct SheetXMark: View {
+public struct SheetXMark: View {
     @Binding var presentationMode: PresentationMode
     var body: some View {
         HStack {
@@ -96,7 +96,7 @@ struct SheetXMark: View {
     }
 }
 
-struct LeftAligned: ViewModifier {
+public struct LeftAligned: ViewModifier {
     func body(content: Content) -> some View {
         HStack {
             content
@@ -105,7 +105,7 @@ struct LeftAligned: ViewModifier {
     }
 }
 
-struct RightAligned: ViewModifier {
+public struct RightAligned: ViewModifier {
     func body(content: Content) -> some View {
         HStack {
             Spacer()
@@ -114,7 +114,7 @@ struct RightAligned: ViewModifier {
     }
 }
 
-struct CenterAligned: ViewModifier {
+public struct CenterAligned: ViewModifier {
     func body(content: Content) -> some View {
         HStack {
             Spacer()
