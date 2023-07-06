@@ -137,7 +137,7 @@ public struct SteadmanSheet<Content: View, LabelContent: View>: View {
 
 public struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
     @Binding public var isPresented: Bool
-    @Binding publicvar height: CGFloat
+    @Binding public var height: CGFloat
     public let mode: SteadmanSheetClosedMode
     public let label: LabelContent
 
