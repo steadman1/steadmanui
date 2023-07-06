@@ -7,7 +7,7 @@
 #if os(iOS)
 import SwiftUI
 
-struct NavigationItem: View {
+public struct NavigationItem: View {
     @Environment(\.index) var index
     @ObservedObject var bar = NavigationBar.shared
     @State var animation: CGFloat = 0
@@ -88,7 +88,7 @@ struct NavigationItem: View {
     }
 }
 
-class NavigationBar: ObservableObject {
+public class NavigationBar: ObservableObject {
     @ObservedObject static var shared = NavigationBar()
     @Published var isShowing = false
     @Published var isChangeable = true
@@ -99,7 +99,7 @@ class NavigationBar: ObservableObject {
     static let topPadding: CGFloat = 5
 }
 
-struct CustomNavigationBar<Content: View>: View {
+public struct CustomNavigationBar<Content: View>: View {
     @ObservedObject var bar = NavigationBar.shared
     @ObservedObject var screen = Screen.shared
     let items: [NavigationItem]
