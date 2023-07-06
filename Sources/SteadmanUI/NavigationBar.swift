@@ -29,7 +29,7 @@ public struct NavigationItem: View {
         self.activeIcon = to
     }
     
-    var body: some View {
+    public var body: some View {
         let isActive = bar.selectionIndex == index
         let foregroundColor: Color = isActive ? .blue : .black
         return HStack {
@@ -112,7 +112,7 @@ public struct CustomNavigationBar<Content: View>: View {
         self.items = items
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             Extract(content) { views in
             // ^ from https://github.com/GeorgeElsham/ViewExtractor
@@ -155,17 +155,17 @@ public struct CustomNavigationBar<Content: View>: View {
 }
 
 extension Animation {
-    static let navigationItemBounce: Animation = .interpolatingSpring(stiffness: 250, damping: 22).speed(1.25)
+    public static let navigationItemBounce: Animation = .interpolatingSpring(stiffness: 250, damping: 22).speed(1.25)
 }
 
 extension EnvironmentValues {
-  var index: Int {
+  public var index: Int {
     get { self[IndexKey.self] }
     set { self[IndexKey.self] = newValue }
   }
 }
 
 private struct IndexKey: EnvironmentKey {
-  static let defaultValue = 0
+  public static let defaultValue = 0
 }
 #endif
