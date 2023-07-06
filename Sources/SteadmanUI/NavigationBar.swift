@@ -89,7 +89,7 @@ public struct NavigationItem: View {
 }
 
 public class NavigationBar: ObservableObject {
-    @ObservedObject static var shared = NavigationBar()
+    @ObservedObject public static var shared = NavigationBar()
     @Published public var isShowing = false
     @Published public var isChangeable = true
     @Published public var selectionIndex = 0
