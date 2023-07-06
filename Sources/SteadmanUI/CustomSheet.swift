@@ -42,7 +42,7 @@ public struct SteadmanSheet<Content: View, LabelContent: View>: View {
         self.label = label()
     }
     
-    var body: some View {
+    public var body: some View {
         var position = screen.height + screen.halfHeight + screen.safeAreaInsets.bottom - (size * animation)
         if dragHeight > 0 {
             position = screen.halfHeight + dragHeight - 57
@@ -141,7 +141,7 @@ public struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
     let mode: SteadmanSheetClosedMode
     let label: LabelContent
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         SteadmanSheet(isPresented: $isPresented, height: $height, mode: mode) {
             content
         } label: {
@@ -151,7 +151,7 @@ public struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
 }
 
 extension View {
-    func steadmanSheet<LabelContent>(isPresented: Binding<Bool>,
+    public func steadmanSheet<LabelContent>(isPresented: Binding<Bool>,
                                    height: Binding<CGFloat>,
                                    mode: SteadmanSheetClosedMode = .closed,
                               @ViewBuilder label: @escaping () -> LabelContent) -> some View where LabelContent: View {
