@@ -156,7 +156,7 @@ extension View {
                                    mode: SteadmanSheetClosedMode = .closed,
                               @ViewBuilder label: @escaping () -> LabelContent) -> some View where LabelContent: View {
         
-        self.modifier(CustomSheetModifier(isPresented: isPresented,
+        self.modifier(SteadmanSheetModifier(isPresented: isPresented,
                                           height: height,
                                           mode: mode,
                                           label: label()))
