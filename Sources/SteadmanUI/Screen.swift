@@ -52,32 +52,32 @@ public class Screen: ObservableObject {
 }
 
 extension Color {
-    static let clear = Color.white.opacity(0.0001)
+    public static let clear = Color.white.opacity(0.0001)
 }
 
 extension Font {
-    static let description = Font.system(size: 15, weight: .bold)
-    static let miniIcon = Font.system(size: 20)
-    static let icon = Font.system(size: 30)
+    public static let description = Font.system(size: 15, weight: .bold)
+    public static let miniIcon = Font.system(size: 20)
+    public static let icon = Font.system(size: 30)
 }
 
 public struct VPad: View {
-    var size: CGFloat = Screen.padding
-    var body: some View {
+    public var size: CGFloat = Screen.padding
+    public var body: some View {
         Spacer().frame(height: size)
     }
 }
 
 public struct HPad: View {
-    var size: CGFloat = Screen.padding
-    var body: some View {
+    public var size: CGFloat = Screen.padding
+    public var body: some View {
         Spacer().frame(width: size)
     }
 }
 
 public struct SheetXMark: View {
     @Binding var presentationMode: PresentationMode
-    var body: some View {
+    public var body: some View {
         HStack {
             Spacer()
             
@@ -97,7 +97,7 @@ public struct SheetXMark: View {
 }
 
 public struct LeftAligned: ViewModifier {
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         HStack {
             content
             Spacer()
@@ -106,7 +106,7 @@ public struct LeftAligned: ViewModifier {
 }
 
 public struct RightAligned: ViewModifier {
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         HStack {
             Spacer()
             content
@@ -115,7 +115,7 @@ public struct RightAligned: ViewModifier {
 }
 
 public struct CenterAligned: ViewModifier {
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         HStack {
             Spacer()
             content
@@ -125,11 +125,11 @@ public struct CenterAligned: ViewModifier {
 }
 
 extension View {
-    func alignLeft() -> some View {
+    public func alignLeft() -> some View {
         self.modifier(LeftAligned())
     }
     
-    func alignRight() -> some View {
+    public func alignRight() -> some View {
         self.modifier(RightAligned())
     }
     
