@@ -9,20 +9,20 @@ import SwiftUI
 
 public struct NavigationItem: View {
     @Environment(\.index) var index
-    @ObservedObject var bar = NavigationBar.shared
+    @ObservedObject public var bar = NavigationBar.shared
     @State var animation: CGFloat = 0
-    @State var icon: Image
-    var activeIcon: Image?
-    var name: String
+    @State public var icon: Image
+    public var activeIcon: Image?
+    public var name: String
     let width: CGFloat = 15
     
-    init(bar: NavigationBar = NavigationBar.shared, name: String, icon: Image) {
+    public init(bar: NavigationBar = NavigationBar.shared, name: String, icon: Image) {
         self.bar = bar
         self.name = name
         self.icon = icon
     }
     
-    init(bar: NavigationBar = NavigationBar.shared, name: String, from: Image, to: Image) {
+    public init(bar: NavigationBar = NavigationBar.shared, name: String, from: Image, to: Image) {
         self.bar = bar
         self.name = name
         self.icon = from
@@ -90,9 +90,9 @@ public struct NavigationItem: View {
 
 public class NavigationBar: ObservableObject {
     @ObservedObject static var shared = NavigationBar()
-    @Published var isShowing = false
-    @Published var isChangeable = true
-    @Published var selectionIndex = 0
+    @Published public var isShowing = false
+    @Published public var isChangeable = true
+    @Published public var selectionIndex = 0
     static let height: CGFloat = 100
     static let halfHeight: CGFloat = 50
     static let itemHeight: CGFloat = 45
@@ -102,12 +102,11 @@ public class NavigationBar: ObservableObject {
 public struct CustomNavigationBar<Content: View>: View {
     @ObservedObject var bar = NavigationBar.shared
     @ObservedObject var screen = Screen.shared
-    let items: [NavigationItem]
-    let content: Content
+    public let items: [NavigationItem]
+    public let content: Content
     //let label: LabelContent
     
-    init(items: [NavigationItem], @ViewBuilder content: @escaping () -> Content) {
-
+    public init(items: [NavigationItem], @ViewBuilder content: @escaping () -> Content) {
         self.content = content()
         self.items = items
     }
