@@ -151,7 +151,7 @@ public struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
 }
 
 extension View {
-    public func steadmanSheet<LabelContent>(isPresented: Binding<Bool>,
+    func steadmanSheet<LabelContent>(isPresented: Binding<Bool>,
                                    height: Binding<CGFloat>,
                                    mode: SteadmanSheetClosedMode = .closed,
                               @ViewBuilder label: @escaping () -> LabelContent) -> some View where LabelContent: View {
