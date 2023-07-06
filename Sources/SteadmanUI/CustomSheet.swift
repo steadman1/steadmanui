@@ -14,19 +14,19 @@ public enum SteadmanSheetClosedMode {
 
 public struct SteadmanSheet<Content: View, LabelContent: View>: View {
     @ObservedObject var screen = Screen.shared
-    @Binding var isPresented: Bool
-    @Binding var height: CGFloat
+    @Binding public var isPresented: Bool
+    @Binding public var height: CGFloat
     @State var animation: Double = 0
     @State var dragHeight: Double = 0
     @State var dragHeightStart: Double = 0
-    let mode: SteadmanSheetClosedMode
+    public let mode: SteadmanSheetClosedMode
     let size = 250.0
-    let content: Content
-    let label: LabelContent
+    public let content: Content
+    public let label: LabelContent
     
     let dismissRadius = 100.0
     
-    init(isPresented: Binding<Bool>,
+    public init(isPresented: Binding<Bool>,
          height: Binding<CGFloat>,
          mode: SteadmanSheetClosedMode,
          @ViewBuilder content: @escaping () -> Content,
@@ -136,10 +136,10 @@ public struct SteadmanSheet<Content: View, LabelContent: View>: View {
 }
 
 public struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
-    @Binding var isPresented: Bool
-    @Binding var height: CGFloat
-    let mode: SteadmanSheetClosedMode
-    let label: LabelContent
+    @Binding public var isPresented: Bool
+    @Binding publicvar height: CGFloat
+    public let mode: SteadmanSheetClosedMode
+    public let label: LabelContent
 
     public func body(content: Content) -> some View {
         SteadmanSheet(isPresented: $isPresented, height: $height, mode: mode) {
