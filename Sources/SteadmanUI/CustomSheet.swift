@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-enum SteadmanSheetClosedMode {
+public enum SteadmanSheetClosedMode {
     case closed, reopenable
 }
 
-struct SteadmanSheet<Content: View, LabelContent: View>: View {
+public struct SteadmanSheet<Content: View, LabelContent: View>: View {
     @ObservedObject var screen = Screen.shared
     @Binding var isPresented: Bool
     @Binding var height: CGFloat
@@ -135,7 +135,7 @@ struct SteadmanSheet<Content: View, LabelContent: View>: View {
     }
 }
 
-struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
+public struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
     @Binding var isPresented: Bool
     @Binding var height: CGFloat
     let mode: SteadmanSheetClosedMode
@@ -151,7 +151,7 @@ struct SteadmanSheetModifier<LabelContent: View>: ViewModifier {
 }
 
 extension View {
-    func steadmanSheet<LabelContent>(isPresented: Binding<Bool>,
+    public func steadmanSheet<LabelContent>(isPresented: Binding<Bool>,
                                    height: Binding<CGFloat>,
                                    mode: SteadmanSheetClosedMode = .closed,
                               @ViewBuilder label: @escaping () -> LabelContent) -> some View where LabelContent: View {
