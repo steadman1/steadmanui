@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 public class Screen: ObservableObject {
-    @ObservedObject static var shared = Screen()
+    @ObservedObject public static var shared = Screen()
     @Published var safeAreaInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 #if os(iOS)
     @Published var width = UIScreen.main.bounds.size.width
