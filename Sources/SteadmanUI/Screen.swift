@@ -10,27 +10,27 @@ import UIKit
 
 public class Screen: ObservableObject {
     @ObservedObject public static var shared = Screen()
-    @Published var safeAreaInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+    @Published public var safeAreaInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 #if os(iOS)
-    @Published var width = UIScreen.main.bounds.size.width
-    @Published var halfWidth = UIScreen.main.bounds.size.width / 2
-    static var widthToLargestIPhone: Double {
+    @Published public var width = UIScreen.main.bounds.size.width
+    @Published public var halfWidth = UIScreen.main.bounds.size.width / 2
+    public static var widthToLargestIPhone: Double {
         let LARGEST_IPHONE_WIDTH = 393.0
         return Screen.shared.width > LARGEST_IPHONE_WIDTH ? LARGEST_IPHONE_WIDTH : Screen.shared.width - Screen.padding * 2
     }
-    @Published var height = UIScreen.main.bounds.size.height
-    @Published var halfHeight = UIScreen.main.bounds.size.height / 2
-    static let size = UIScreen.main.bounds.size
+    @Published public var height = UIScreen.main.bounds.size.height
+    @Published public var halfHeight = UIScreen.main.bounds.size.height / 2
+    public static let size = UIScreen.main.bounds.size
 #endif
-    static let padding = 15.0
-    static let halfPadding = 7.5
-    static let cornerRadius = 18.0
+    public static let padding = 15.0
+    public static let halfPadding = 7.5
+    public static let cornerRadius = 18.0
 #if os(iOS)
-    static func impact() {
+    public static func impact() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
     
-    static func rollingImpact(n: Int = 0) {
+    public static func rollingImpact(n: Int = 0) {
         let impacts: [UIImpactFeedbackGenerator.FeedbackStyle] = [
             .rigid,
             .heavy,
@@ -76,7 +76,7 @@ public struct HPad: View {
 }
 
 public struct SheetXMark: View {
-    @Binding var presentationMode: PresentationMode
+    @Binding public var presentationMode: PresentationMode
     public var body: some View {
         HStack {
             Spacer()
@@ -133,7 +133,7 @@ extension View {
         self.modifier(RightAligned())
     }
     
-    func alignCenter() -> some View {
+    public func alignCenter() -> some View {
         self.modifier(CenterAligned())
     }
 }
