@@ -87,8 +87,10 @@ public struct SteadmanSheet<Content: View, LabelContent: View>: View {
                                 if drag.location.y < screen.safeAreaInsets.top {
                                     return
                                 } else if drag.location.y > 0 {
-                                    dragHeight = drag.location.y
-                                    dragHeightStart = drag.startLocation.y
+                                    withAnimation() {
+                                        dragHeight = drag.location.y
+                                        dragHeightStart = drag.startLocation.y
+                                    }
                                 } else {
                                     dragHeightStart = 0
                                     withAnimation(.sheetBounce) {
