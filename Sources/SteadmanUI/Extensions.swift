@@ -30,3 +30,23 @@ extension Array where Element: Equatable {
         return array
     }
 }
+
+extension Font {
+    public static let description = Font.system(size: 15, weight: .bold)
+    public static let miniIcon = Font.system(size: 20)
+    public static let icon = Font.system(size: 30)
+}
+
+extension View {
+    public func alignLeft() -> some View {
+        self.modifier(LeftAligned())
+    }
+    
+    public func alignRight() -> some View {
+        self.modifier(RightAligned())
+    }
+    
+    public func alignCenter() -> some View {
+        self.modifier(CenterAligned())
+    }
+}
