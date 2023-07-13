@@ -15,6 +15,8 @@ extension Color {
     public func pastelLighten(intensity: PastelIntensity = .low, animatedValue: Double = 1) -> Color {
         return self.opacity(intensity.rawValue * animatedValue)
     }
+
+    public static var clear: Color = Color.white.opacity(0.00001)
 }
 
 extension Array where Element: Equatable {
