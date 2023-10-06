@@ -93,7 +93,7 @@ public class NavigationBar: ObservableObject {
     @Published public var isShowing = false
     @Published public var isChangeable = true
     @Published public var selectionIndex = 0
-    public static var foregroundColor: Color = .blue
+    public static var foregroundColor: Color = .blue.pastelLighten()
     public static var foregroundItemColor: Color = .blue
     public static var backgroundColor: Color = .white
     public static var cornerRadius: CGFloat = 50
