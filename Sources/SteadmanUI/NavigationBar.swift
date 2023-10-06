@@ -93,13 +93,13 @@ public class NavigationBar: ObservableObject {
     @Published public var isShowing = false
     @Published public var isChangeable = true
     @Published public var selectionIndex = 0
+    public static var foregroundColor: Color = .blue
+    public static var backgroundColor: Color = .white
+    public static var cornerRadius: CGFloat = 50
     static let height: CGFloat = 100
     static let halfHeight: CGFloat = 50
     static let itemHeight: CGFloat = 45
     static let topPadding: CGFloat = 5
-    static var foregroundColor: Color = .blue
-    static var backgroundColor: Color = .white
-    static var cornerRadius: CGFloat = 50
 }
 
 public struct CustomNavigationBar<Content: View>: View {
