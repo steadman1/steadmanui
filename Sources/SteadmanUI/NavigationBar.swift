@@ -46,7 +46,7 @@ public struct NavigationItem: View {
                 HStack {
                     Spacer()
                     Text(name)
-                        .font(.description.bold())
+                        .font(NavigationBar.font)
                         .foregroundColor(NavigationBar.foregroundItemColor)
                     Spacer()
                 }
@@ -97,6 +97,7 @@ public class NavigationBar: ObservableObject {
     public static var foregroundItemColor: Color = .blue
     public static var backgroundColor: Color = .white
     public static var cornerRadius: CGFloat = 50
+    public static var font: Font = .system(size: 14).bold()
     static let height: CGFloat = 100
     static let halfHeight: CGFloat = 50
     static let itemHeight: CGFloat = 45
