@@ -31,7 +31,7 @@ public struct NavigationItem: View {
     
     public var body: some View {
         let isActive = bar.selectionIndex == index
-        let foregroundColor: Color = isActive ? NavigationBar.foregroundColor : .black
+        let foregroundColor: Color = isActive ? NavigationBar.foregroundItemColor : .black
         return HStack {
             if activeIcon != nil && isActive {
                 activeIcon
@@ -47,14 +47,14 @@ public struct NavigationItem: View {
                     Spacer()
                     Text(name)
                         .font(.description.bold())
-                        .foregroundColor(NavigationBar.foregroundColor)
+                        .foregroundColor(NavigationBar.foregroundItemColor)
                     Spacer()
                 }
             }
         }.frame(width: width + 82 * animation, height: 50)
             .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 6)
-            .background(NavigationBar.foregroundColor.pastelLighten(animatedValue: animation))
+            .background(NavigationBar.foregroundColor.opacity(animation))
             .cornerRadius(NavigationBar.cornerRadius)
             .onAppear {
                 animation = isActive ? 1 : 0
@@ -94,6 +94,7 @@ public class NavigationBar: ObservableObject {
     @Published public var isChangeable = true
     @Published public var selectionIndex = 0
     public static var foregroundColor: Color = .blue
+    public static var foregroundItemColor: Color = .blue
     public static var backgroundColor: Color = .white
     public static var cornerRadius: CGFloat = 50
     static let height: CGFloat = 100
@@ -142,11 +143,11 @@ public struct CustomNavigationBar<Content: View>: View {
             }.frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
-            
-            Rectangle()
-                .frame(width: screen.width, height: 2)
-                .foregroundColor(.gray.pastelLighten())
-                .position(x: screen.halfWidth, y: screen.height - NavigationBar.height + screen.safeAreaInsets.bottom)
+                .shadow(color: Color.black.opacity(0.35), radius: 4, x: 0, y: 4)
+            // Rectangle()
+            //     .frame(width: screen.width, height: 2)
+            //     .foregroundColor(.gray.pastelLighten())
+            //     .position(x: screen.halfWidth, y: screen.height - NavigationBar.height + screen.safeAreaInsets.bottom)
             
         }.onAppear {
             bar.isShowing = true
