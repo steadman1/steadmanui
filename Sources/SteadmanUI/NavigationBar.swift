@@ -31,7 +31,7 @@ public struct NavigationItem: View {
     
     public var body: some View {
         let isActive = bar.selectionIndex == index
-        let foregroundColor: Color = isActive ? NavigationBar.foregroundItemColor : .black
+        let foregroundColor: Color = NavigationBar.foregroundItemColor //isActive ? NavigationBar.foregroundItemColor : .black
         return HStack {
             if activeIcon != nil && isActive {
                 activeIcon
