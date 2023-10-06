@@ -128,7 +128,14 @@ public struct CustomNavigationBar<Content: View>: View {
                     }
                 }
             }
-        
+
+            Rectangle {
+                // only shows shadow
+            }.frame(width: screen.width, height: NavigationBar.height)
+                .background(NavigationBar.backgroundColor)
+                .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
+                .shadow(color: Color.black.opacity(0.35), radius: 4, x: 0, y: -4)
+            
             ZStack {
                 HStack {
                     Spacer()
@@ -144,7 +151,6 @@ public struct CustomNavigationBar<Content: View>: View {
             }.frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
-                .shadow(color: Color.black.opacity(0.35), radius: 4, x: 0, y: 4)
             // Rectangle()
             //     .frame(width: screen.width, height: 2)
             //     .foregroundColor(.gray.pastelLighten())
