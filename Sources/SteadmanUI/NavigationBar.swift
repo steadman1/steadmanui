@@ -51,9 +51,9 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
-        }.frame(width: width + 100 * animation, height: 56)
-            .padding([.leading, .trailing], 12)
-            .padding([.top, .bottom], 6)
+        }.frame(width: width + 100 * animation, height: 48)
+            .padding([.leading, .trailing], 16)
+            .padding([.top, .bottom], 8)
             .background(NavigationBar.foregroundColor.opacity(animation))
             .cornerRadius(NavigationBar.cornerRadius)
             .onAppear {
