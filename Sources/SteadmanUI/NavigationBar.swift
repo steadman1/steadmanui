@@ -31,7 +31,7 @@ public struct NavigationItem: View {
     
     public var body: some View {
         let isActive = bar.selectionIndex == index
-        let foregroundColor: Color = isActive ? .blue : .black
+        let foregroundColor: Color = isActive ? NavigationBar.foregroundColor : .black
         return HStack {
             if activeIcon != nil && isActive {
                 activeIcon
@@ -47,15 +47,15 @@ public struct NavigationItem: View {
                     Spacer()
                     Text(name)
                         .font(.description.bold())
-                        .foregroundColor(.blue)
+                        .foregroundColor(NavigationBar.foregroundColor)
                     Spacer()
                 }
             }
         }.frame(width: width + 82 * animation, height: 50)
             .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 6)
-            .background(Color.blue.pastelLighten(animatedValue: animation))
-            .cornerRadius(100)
+            .background(NavigationBar.foregroundColor.pastelLighten(animatedValue: animation))
+            .cornerRadius(NavigationBar.cornerRadius)
             .onAppear {
                 animation = isActive ? 1 : 0
             }.onTapGesture {
@@ -97,6 +97,9 @@ public class NavigationBar: ObservableObject {
     static let halfHeight: CGFloat = 50
     static let itemHeight: CGFloat = 45
     static let topPadding: CGFloat = 5
+    static var foregroundColor: Color = .blue
+    static var backgroundColor: Color = .white
+    static var cornerRadius: CGFloat = 50
 }
 
 public struct CustomNavigationBar<Content: View>: View {
@@ -137,7 +140,7 @@ public struct CustomNavigationBar<Content: View>: View {
 //                    .padding(Screen.padding)
                     .padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2 + NavigationBar.topPadding)
             }.frame(width: screen.width, height: NavigationBar.height)
-                .background(Color.white)
+                .background(NavigationBar.backgroundColor)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
             
             Rectangle()
