@@ -138,11 +138,11 @@ public struct CustomNavigationBar<Content: View>: View {
             ZStack {
                 HStack {
                     ForEach(Array(zip(items.indices, items)), id: \.0) { index, item in
-					item.environment(\.index, index)
-		                        
-					if (index < items.count - 1) {
-					    Spacer()
-					}
+						item.environment(\.index, index)
+			                        
+						if (index < items.count - 1) {
+						    Spacer()
+						}
                     }
                 }.frame(width: screen.width - Screen.padding * 2)
             }.frame(width: screen.width, height: NavigationBar.height)
