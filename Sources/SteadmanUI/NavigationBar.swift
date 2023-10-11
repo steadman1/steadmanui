@@ -14,18 +14,21 @@ public struct NavigationItem: View {
     @State public var icon: Image
     public var activeIcon: Image?
     public var name: String
+	public var width: CGFloat
     
-    public init(bar: NavigationBar = NavigationBar.shared, name: String, icon: Image) {
+    public init(bar: NavigationBar = NavigationBar.shared, name: String, icon: Image, width: CGFloat = 100) {
         self.bar = bar
         self.name = name
         self.icon = icon
+	    self.width = width
     }
     
-    public init(bar: NavigationBar = NavigationBar.shared, name: String, from: Image, to: Image) {
+    public init(bar: NavigationBar = NavigationBar.shared, name: String, from: Image, to: Image, width: CGFloat = 100) {
         self.bar = bar
         self.name = name
         self.icon = from
         self.activeIcon = to
+	    self.width = width
     }
     
     public var body: some View {
@@ -55,7 +58,7 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
-        }.frame(width: 32 + CGFloat(14 * name.count) * animation, height: 48)
+        }.frame(width: 12 + width * animation, height: 48)
             .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 8)
             .background(NavigationBar.foregroundColor.opacity(animation))
