@@ -140,7 +140,7 @@ public struct CustomNavigationBar<Content: View>: View {
                     ForEach(Array(zip(items.indices, items)), id: \.0) { index, item in
                         item.environment(\.index, index)
                         
-                        if index < items.indices - 1 {
+                        if (index < items.indices - 1) {
                             Spacer()
                         }
                     }
