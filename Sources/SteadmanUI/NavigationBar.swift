@@ -37,10 +37,12 @@ public struct NavigationItem: View {
                     .font(NavigationBar.iconFont)
                     .foregroundColor(foregroundColor)
             } else {
-                icon
-                    .font(NavigationBar.iconFont)
-                    .foregroundColor(foregroundColor)
-		    .padding(Screen.padding)
+                HStack {
+			icon
+			        .foregroundColor(foregroundColor)
+		    		.padding(Screen.padding)
+		}.padding(Screen.padding)
+                    
             }
             if animation != 0 {
                 HStack {
