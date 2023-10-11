@@ -38,10 +38,12 @@ public struct NavigationItem: View {
                     .foregroundColor(foregroundColor)
             } else {
                 HStack {
+			Spacer().frame(width: Screen.padding)
 			icon
 			        .foregroundColor(foregroundColor)
 		    		.padding(Screen.padding)
-		}.padding(Screen.padding)
+			Spacer().frame(width: Screen.padding)
+		}
                     
             }
             if animation != 0 {
