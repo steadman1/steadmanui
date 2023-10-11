@@ -39,9 +39,9 @@ public struct NavigationItem: View {
             } else {
                 HStack {
 			Spacer().frame(width: Screen.padding)
-			icon
+			icon	
+				.font(NavigationBar.iconFont)
 			        .foregroundColor(foregroundColor)
-		    		.padding(Screen.padding)
 			Spacer().frame(width: Screen.padding)
 		}
                     
