@@ -14,7 +14,6 @@ public struct NavigationItem: View {
     @State public var icon: Image
     public var activeIcon: Image?
     public var name: String
-    let width: CGFloat = 15
     
     public init(bar: NavigationBar = NavigationBar.shared, name: String, icon: Image) {
         self.bar = bar
@@ -51,8 +50,8 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
-        }.frame(width: width + 100 * animation, height: 48)
-            .padding([.leading, .trailing], 16)
+        }.frame(width: 16 * name.length * animation, height: 48)
+            .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 8)
             .background(NavigationBar.foregroundColor.opacity(animation))
             .cornerRadius(NavigationBar.cornerRadius)
