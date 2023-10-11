@@ -35,11 +35,11 @@ public struct NavigationItem: View {
         return HStack {
             if activeIcon != nil && isActive {
                 activeIcon
-                    .font(.miniIcon)
+                    .font(NavigationBar.iconFont)
                     .foregroundColor(foregroundColor)
             } else {
                 icon
-                    .font(.miniIcon)
+                    .font(NavigationBar.iconFont)
                     .foregroundColor(foregroundColor)
             }
             if animation != 0 {
@@ -97,6 +97,7 @@ public class NavigationBar: ObservableObject {
     public static var foregroundItemColor: Color = .blue
     public static var backgroundColor: Color = .white
     public static var cornerRadius: CGFloat = 50
+    public static var iconFont: Font = .miniIcon
     public static var font: Font = .system(size: 14).bold()
     static let height: CGFloat = 116
     static let halfHeight: CGFloat = 58
