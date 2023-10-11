@@ -143,9 +143,8 @@ public struct CustomNavigationBar<Content: View>: View {
 			if (index < items.count - 1) {
 			    Spacer()
 			}
-                    }
+                    }.padding(Screen.padding)
                 }.frame(width: screen.width)
-                    .padding(Screen.padding)
                     .padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2 + NavigationBar.topPadding)
             }.frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
