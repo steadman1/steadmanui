@@ -138,7 +138,7 @@ public struct CustomNavigationBar<Content: View>: View {
                 .frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
-                .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: -4)
+                .shadow(color: Color.black.opacity(0.35), radius: 8, x: 0, y: -4)
             
             ZStack {
                 HStack {
@@ -152,9 +152,10 @@ public struct CustomNavigationBar<Content: View>: View {
 				
 	                    }
                 }.frame(width: screen.width - Screen.padding * 2)
+		    .padding(.top, -NavigationBar.topPadding)
             }.frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
-		.padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2 + NavigationBar.topPadding)
+		.padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
             // Rectangle()
             //     .frame(width: screen.width, height: 2)
