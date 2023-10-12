@@ -58,7 +58,7 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
-		if !isActive && index == itemCount {
+		if !isActive && index == itemCount - 1 {
 			Spacer().frame(width: Screen.padding * animation)
 		}
         }.frame(width: 16 + width * animation, height: 48)
