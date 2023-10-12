@@ -36,9 +36,6 @@ public struct NavigationItem: View {
         let isActive = bar.selectionIndex == index
         let foregroundColor: Color = NavigationBar.foregroundItemColor //isActive ? NavigationBar.foregroundItemColor : .black
         return HStack {
-		if !isActive && index == 0 {
-			Spacer().frame(width: Screen.padding * animation)
-		}
             if activeIcon != nil && isActive {
                 activeIcon
                     .font(NavigationBar.iconFont)
@@ -58,9 +55,6 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
-		if !isActive && index == itemCount - 1 {
-			Spacer().frame(width: Screen.padding * animation)
-		}
         }.frame(width: 16 + width * animation, height: 48)
             .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 8)
