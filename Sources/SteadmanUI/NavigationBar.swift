@@ -55,7 +55,7 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
-        }.frame(width: 16 + width * animation, height: 48)
+        }.frame(width: 16 + width * animation, height: NavigationBar.itemHeight)
             .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 8)
             .background(NavigationBar.foregroundColor.opacity(animation))
