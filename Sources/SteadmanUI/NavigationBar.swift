@@ -103,10 +103,10 @@ public class NavigationBar: ObservableObject {
     public static var cornerRadius: CGFloat = 50
     public static var iconFont: Font = .miniIcon
     public static var font: Font = .system(size: 14).bold()
-    static let height: CGFloat = 116
-    static let halfHeight: CGFloat = 58
-    static let itemHeight: CGFloat = 45
-    static let topPadding: CGFloat = 0
+    public static let height: CGFloat = 116
+    public static let halfHeight: CGFloat = 58
+    public static let itemHeight: CGFloat = 45
+    public static let topPadding: CGFloat = 0
 }
 
 public struct CustomNavigationBar<Content: View>: View {
