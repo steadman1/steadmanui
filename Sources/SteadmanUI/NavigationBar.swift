@@ -38,6 +38,7 @@ public struct NavigationItem: View {
         return HStack {
             if activeIcon != nil && isActive {
                 activeIcon
+		    .scaleEffect(1 + 0.15 * animation)
                     .font(NavigationBar.iconFont)
                     .foregroundColor(foregroundColor)
             } else {
