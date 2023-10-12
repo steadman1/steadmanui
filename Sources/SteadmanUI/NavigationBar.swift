@@ -105,7 +105,7 @@ public class NavigationBar: ObservableObject {
     static let height: CGFloat = 116
     static let halfHeight: CGFloat = 58
     static let itemHeight: CGFloat = 45
-    static let topPadding: CGFloat = 16
+    static let topPadding: CGFloat = 0
 }
 
 public struct CustomNavigationBar<Content: View>: View {
@@ -141,13 +141,20 @@ public struct CustomNavigationBar<Content: View>: View {
             
             ZStack {
                 HStack {
-                    ForEach(Array(zip(items.indices, items)), id: \.0) { index, item in
-						item.environment(\.index, index)
-			                        
-						if (index < items.count - 1) {
-						    Spacer()
-						}
-                    }
+			if bar.selectionIndex != 0 {
+				Spacer().frame(width: Screen.padding)
+			}
+	                    ForEach(Array(zip(items.indices, items)), id: \.0) { index, item in
+				item.environment(\.index, index)
+				
+				if (index < items.count - 1) {
+				    Spacer()
+				}
+				
+	                    }
+			if bar.selectionIndex != (items.count - 1) {
+				Spacer().frame(width: Screen.padding)
+			}
                 }.frame(width: screen.width - Screen.padding * 2)
             }.frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
