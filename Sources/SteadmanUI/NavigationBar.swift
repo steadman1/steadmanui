@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct NavigationItem: View {
     @Environment(\.index) var index
+	@Environment(\.itemCount) var itemCount
     @ObservedObject public var bar = NavigationBar.shared
     @State var animation: CGFloat = 0
     @State public var icon: Image
@@ -35,6 +36,9 @@ public struct NavigationItem: View {
         let isActive = bar.selectionIndex == index
         let foregroundColor: Color = NavigationBar.foregroundItemColor //isActive ? NavigationBar.foregroundItemColor : .black
         return HStack {
+		if !isActive && index == 0 {
+			Spacer().frame(width: Screen.padding * animation)
+		}
             if activeIcon != nil && isActive {
                 activeIcon
                     .font(NavigationBar.iconFont)
@@ -54,6 +58,9 @@ public struct NavigationItem: View {
                     Spacer()
                 }
             }
+		if !isActive && index == itemCount {
+			Spacer().frame(width: Screen.padding * animation)
+		}
         }.frame(width: 16 + width * animation, height: 48)
             .padding([.leading, .trailing], 12)
             .padding([.top, .bottom], 8)
@@ -141,20 +148,15 @@ public struct CustomNavigationBar<Content: View>: View {
             
             ZStack {
                 HStack {
-			if bar.selectionIndex != 0 {
-				Spacer().frame(width: Screen.padding)
-			}
 	                    ForEach(Array(zip(items.indices, items)), id: \.0) { index, item in
 				item.environment(\.index, index)
+					.environment(\.itemCount, items.count)
 				
 				if (index < items.count - 1) {
 				    Spacer()
 				}
 				
 	                    }
-			if bar.selectionIndex != (items.count - 1) {
-				Spacer().frame(width: Screen.padding)
-			}
                 }.frame(width: screen.width - Screen.padding * 2)
             }.frame(width: screen.width, height: NavigationBar.height)
                 .background(NavigationBar.backgroundColor)
@@ -182,9 +184,17 @@ extension EnvironmentValues {
     get { self[IndexKey.self] }
     set { self[IndexKey.self] = newValue }
   }
+	public var itemCount: Int {
+	    get { self[ItemCountKey.self] }
+	    set { self[ItemCountKey.self] = newValue }
+	  }
 }
 
 private struct IndexKey: EnvironmentKey {
+  public static let defaultValue = 0
+}
+
+private struct ItemCountKey: EnvironmentKey {
   public static let defaultValue = 0
 }
 #endif
