@@ -172,9 +172,7 @@ public struct CustomNavigationBar<Content: View>: View {
         }.blur(radius: 15 * animation)
 	    .overlay(Color.white.opacity(0.2 * animation))
 		.onChange(of: bar.isViewBlurred) { newValue in
-			if newValue {
-				withAnimation { animation = 1 }
-			}
+			withAnimation { animation = newValue ? 1 : 0 }
 		}
     }
 }
