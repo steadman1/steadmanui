@@ -98,6 +98,7 @@ public class NavigationBar: ObservableObject {
     @Published public var isShowing = false
     @Published public var isChangeable = true
     @Published public var selectionIndex = 0
+	@Published public var isViewBlurred = false
     public static var foregroundColor: Color = .blue.pastelLighten()
     public static var foregroundItemColor: Color = .blue
     public static var backgroundColor: Color = .white
@@ -113,6 +114,7 @@ public class NavigationBar: ObservableObject {
 public struct CustomNavigationBar<Content: View>: View {
     @ObservedObject var bar = NavigationBar.shared
     @ObservedObject var screen = Screen.shared
+	@State var animation: CGFloat = 0
     public let items: [NavigationItem]
     public let content: Content
     //let label: LabelContent
@@ -129,7 +131,12 @@ public struct CustomNavigationBar<Content: View>: View {
                 VStack {
                     ForEach(Array(zip(views.indices, views)), id: \.0) { index, view in
                         if bar.selectionIndex == index {
-                            view
+                            view.blur(radius: 15 * animation)
+				.onChange(of: bar.isViewBlurred) { _, newValue in {
+					if newValue {
+						withAnimation { animation = 1 }
+					}
+				}
                         }
                     }
                 }
