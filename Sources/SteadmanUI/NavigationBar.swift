@@ -132,7 +132,7 @@ public struct CustomNavigationBar<Content: View>: View {
                     ForEach(Array(zip(views.indices, views)), id: \.0) { index, view in
                         if bar.selectionIndex == index {
                             view.blur(radius: 15 * animation)
-				.onChange(of: bar.isViewBlurred) { _, newValue in {
+				.onChange(of: bar.isViewBlurred) { _, newValue in
 					if newValue {
 						withAnimation { animation = 1 }
 					}
