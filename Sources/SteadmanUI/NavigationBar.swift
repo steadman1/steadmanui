@@ -131,12 +131,7 @@ public struct CustomNavigationBar<Content: View>: View {
                 VStack {
                     ForEach(Array(zip(views.indices, views)), id: \.0) { index, view in
                         if bar.selectionIndex == index {
-                            view.blur(radius: 15 * animation)
-				.onChange(of: bar.isViewBlurred) { newValue in
-					if newValue {
-						withAnimation { animation = 1 }
-					}
-				}
+                            view
                         }
                     }
                 }
@@ -174,7 +169,12 @@ public struct CustomNavigationBar<Content: View>: View {
             bar.isShowing = true
         }.onDisappear {
             bar.isShowing = false
-        }
+        }.blur(radius: 15 * animation)
+		.onChange(of: bar.isViewBlurred) { newValue in
+			if newValue {
+				withAnimation { animation = 1 }
+			}
+		}
     }
 }
 
