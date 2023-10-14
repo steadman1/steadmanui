@@ -134,7 +134,7 @@ public struct CustomNavigationBar<Content: View>: View {
                             view
                         }
                     }
-                }
+                }.background(NavigationBar.backgroundColor)
             }
 
             Rectangle() // only shows shadow
