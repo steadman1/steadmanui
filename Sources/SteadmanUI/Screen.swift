@@ -26,8 +26,8 @@ public class Screen: ObservableObject {
     public static let halfPadding = 7.5
     public static let cornerRadius = 18.0
 #if os(iOS)
-    public static func impact() {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+    public static func impact(style: UIImpactFeedbackGenerator.FeedbackStyle = .light) {
+        UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
     
     public static func rollingImpact(n: Int = 0) {
