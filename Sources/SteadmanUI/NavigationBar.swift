@@ -134,7 +134,7 @@ public struct CustomNavigationBar<Content: View>: View {
                             view.background(NavigationBar.backgroundColor)
                         }
                     }
-                }.background(NavigationBar.backgroundColor)
+                }
             }
 
             Rectangle() // only shows shadow
@@ -170,7 +170,8 @@ public struct CustomNavigationBar<Content: View>: View {
             bar.isShowing = true
         }.onDisappear {
             bar.isShowing = false
-        }.background(NavigationBar.backgroundColor)
+        }.foregroundStyle(NavigationBar.backgroundColor)
+	    .background(NavigationBar.backgroundColor)
 	    .blur(radius: 15 * animation)
 	    .overlay(Color.black.opacity(0.2 * animation))
 		.onChange(of: bar.isViewBlurred) { newValue in
