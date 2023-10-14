@@ -170,7 +170,7 @@ public struct CustomNavigationBar<Content: View>: View {
         }.onDisappear {
             bar.isShowing = false
         }.blur(radius: 15 * animation)
-	    .overlay(Color.white.opacity(0.2 * animation))
+	    .overlay(Color.black.opacity(0.2 * animation))
 		.onChange(of: bar.isViewBlurred) { newValue in
 			withAnimation { animation = newValue ? 1 : 0 }
 		}
