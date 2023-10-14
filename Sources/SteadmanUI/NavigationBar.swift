@@ -131,7 +131,7 @@ public struct CustomNavigationBar<Content: View>: View {
                 VStack {
                     ForEach(Array(zip(views.indices, views)), id: \.0) { index, view in
                         if bar.selectionIndex == index {
-                            view
+                            view.background(NavigationBar.backgroundColor)
                         }
                     }
                 }.background(NavigationBar.backgroundColor)
