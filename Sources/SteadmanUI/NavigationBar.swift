@@ -131,7 +131,7 @@ public struct CustomNavigationBar<Content: View>: View {
                 VStack {
                     ForEach(Array(zip(views.indices, views)), id: \.0) { index, view in
                         if bar.selectionIndex == index {
-                            view.background(NavigationBar.backgroundColor)
+                            view
                         }
                     }
                 }
@@ -139,7 +139,6 @@ public struct CustomNavigationBar<Content: View>: View {
 
             Rectangle() // only shows shadow
                 .frame(width: screen.width, height: NavigationBar.height)
-                .background(NavigationBar.backgroundColor)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
                 .shadow(color: Color.black.opacity(0.35), radius: 8, x: 0, y: -4)
             
@@ -155,10 +154,8 @@ public struct CustomNavigationBar<Content: View>: View {
 				
 	                    }
                 }.frame(width: screen.width - Screen.padding * 2)
-		    .background(NavigationBar.backgroundColor)
 		    .padding(.top, -NavigationBar.topPadding)
             }.frame(width: screen.width, height: NavigationBar.height)
-                .background(NavigationBar.backgroundColor)
 		.padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
             // Rectangle()
