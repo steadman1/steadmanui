@@ -137,11 +137,6 @@ public struct CustomNavigationBar<Content: View>: View {
                 }
             }
 
-		Rectangle()
-			.frame(width: screen.width, height: screen.safeAreaInsets.top)
-			.background(.ultraThinMaterial)
-			.position(x: screen.halfWidth, y: 0)
-
             Rectangle() // only shows shadow
                 .frame(width: screen.width, height: NavigationBar.height)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
