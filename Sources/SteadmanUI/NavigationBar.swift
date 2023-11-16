@@ -65,7 +65,7 @@ public struct NavigationItem: View {
                 animation = isActive ? 1 : 0
             }.onTapGesture {
                 if bar.isChangeable {
-                    Screen.impact()
+                    Screen.impact(enabled: true)
                     bar.selectionIndex = index
                 }
             }.onChange(of: bar.selectionIndex) { newValue in
