@@ -14,12 +14,13 @@ public class Screen: ObservableObject {
 #if os(iOS)
     @Published public var width = UIScreen.main.bounds.size.width
     @Published public var halfWidth = UIScreen.main.bounds.size.width / 2
+    @Published public var height = UIScreen.main.bounds.size.height
+    @Published public var halfHeight = UIScreen.main.bounds.size.height / 2
+    public var initialSafeAreaInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     public static var widthToLargestIPhone: Double {
         let LARGEST_IPHONE_WIDTH = 393.0
         return Screen.shared.width > LARGEST_IPHONE_WIDTH ? LARGEST_IPHONE_WIDTH : Screen.shared.width - Screen.padding * 2
     }
-    @Published public var height = UIScreen.main.bounds.size.height
-    @Published public var halfHeight = UIScreen.main.bounds.size.height / 2
     public static let size = UIScreen.main.bounds.size
 #endif
     public static let padding = 15.0
