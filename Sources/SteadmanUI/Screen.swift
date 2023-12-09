@@ -33,9 +33,9 @@ public class Screen: ObservableObject {
         }
     }
 
-    public static func notification(enabled: Bool, style: UIImpactFeedbackGenerator.FeedbackStyle = .light) {
+    public static func notification(enabled: Bool, style: UINotificationFeedbackGenerator.FeedbackStyle = .success) {
         if enabled {
-            UIImpactFeedbackGenerator(style: style).notificationOccurred()
+            UINotificationFeedbackGenerator().notificationOccurred(style)
         }
     }
     
