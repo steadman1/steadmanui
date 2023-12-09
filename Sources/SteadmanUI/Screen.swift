@@ -32,6 +32,12 @@ public class Screen: ObservableObject {
             UIImpactFeedbackGenerator(style: style).impactOccurred()
         }
     }
+
+    public static func notification(enabled: Bool, style: UIImpactFeedbackGenerator.FeedbackStyle = .light) {
+        if enabled {
+            UIImpactFeedbackGenerator(style: style).notificationOccurred()
+        }
+    }
     
     public static func rollingImpact(n: Int = 0) {
         let impacts: [UIImpactFeedbackGenerator.FeedbackStyle] = [
