@@ -33,7 +33,7 @@ public class Screen: ObservableObject {
         }
     }
 
-    public static func notification(enabled: Bool, style: UINotificationFeedbackGenerator.FeedbackStyle = .success) {
+    public static func notification(enabled: Bool, style: UINotificationFeedbackGenerator.FeedbackType = .success) {
         if enabled {
             UINotificationFeedbackGenerator().notificationOccurred(style)
         }
