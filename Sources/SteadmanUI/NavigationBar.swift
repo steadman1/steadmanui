@@ -109,6 +109,7 @@ public class NavigationBar: ObservableObject {
     public static var halfHeight: CGFloat = 58
     public static var itemHeight: CGFloat = 45
     public static var topPadding: CGFloat = 0
+    public static var horizontalPadding: CGFloat = 0
 }
 
 public struct CustomNavigationBar<Content: View>: View {
@@ -154,7 +155,8 @@ public struct CustomNavigationBar<Content: View>: View {
 				
 	                    }
                 }.frame(width: screen.width - Screen.padding * 2)
-		    .padding(.top, -NavigationBar.topPadding)
+		    .padding(.top, NavigationBar.topPadding)
+		    .padding(.horizontal, NavigationBar.horizontalPadding)
             }.frame(width: screen.width, height: NavigationBar.height)
 		.padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
