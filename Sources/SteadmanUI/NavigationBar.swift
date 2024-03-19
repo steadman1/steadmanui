@@ -154,9 +154,8 @@ public struct CustomNavigationBar<Content: View>: View {
 				}
 				
 	                    }
-                }.frame(width: screen.width - Screen.padding * 2)
+                }.frame(width: screen.width - Screen.padding * 2 - NavigationBar.horizontalPadding * 2)
 		    .padding(.top, NavigationBar.topPadding)
-		    .padding(.horizontal, NavigationBar.horizontalPadding)
             }.frame(width: screen.width, height: NavigationBar.height)
 		.padding(.top, (NavigationBar.height - NavigationBar.itemHeight) / -2)
                 .position(x: screen.halfWidth, y: screen.height - NavigationBar.halfHeight + screen.safeAreaInsets.bottom)
