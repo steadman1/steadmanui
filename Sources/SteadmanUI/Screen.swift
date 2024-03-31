@@ -23,8 +23,8 @@ public class Screen: ObservableObject {
     }
     public static let size = UIScreen.main.bounds.size
 #endif
-    public static let padding = 15.0
-    public static let halfPadding = 7.5
+    public static let padding = 16.0
+    public static let halfPadding = 8.0
     public static let cornerRadius = 18.0
 #if os(iOS)
     public static func impact(enabled: Bool, style: UIImpactFeedbackGenerator.FeedbackStyle = .light) {
